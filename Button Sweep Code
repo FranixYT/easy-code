@@ -1,0 +1,43 @@
+#include <Servo.h>
+Servo myservo;
+
+void setup() {
+  myservo.attach(9);
+  for(int i = 10; i <= 13; i++){
+    pinMode(i, INPUT);
+  }
+   for(int x = 3; x <= 5 ; x++){
+    pinMode(x, OUTPUT);
+  }
+}
+
+void loop() {
+  if(digitalRead(13)== HIGH) {
+    myservo.write(0); 
+    digitalWrite(3, LOW);
+    digitalWrite(4, LOW);
+    digitalWrite(5, LOW);
+    delay(30);
+  }
+  if(digitalRead(12)== HIGH) {
+    myservo.write(45); 
+    digitalWrite(3, HIGH);
+    digitalWrite(4, LOW);
+    digitalWrite(5, LOW);
+    delay(30);
+  }
+  if(digitalRead(11)== HIGH) {
+    myservo.write(100);    
+    digitalWrite(3, HIGH);
+    digitalWrite(4, HIGH);
+    digitalWrite(5, LOW);
+    delay(30);
+  }
+  if(digitalRead(10)== HIGH) {
+    myservo.write(160);    
+    digitalWrite(3, HIGH);
+    digitalWrite(4, HIGH);
+    digitalWrite(5, HIGH);
+    delay(30);
+  }
+}
